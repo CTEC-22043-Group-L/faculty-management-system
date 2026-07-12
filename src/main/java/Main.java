@@ -1,10 +1,3 @@
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("project working...");
-    }
-}
-
-// this is for tesingimport javax.swing.SwingUtilities;
 import view.auth.AuthFrame;
 
 public class Main {
