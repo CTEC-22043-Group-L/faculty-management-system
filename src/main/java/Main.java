@@ -1,4 +1,3 @@
-import javax.swing.SwingUtilities;
 import view.auth.AuthFrame;
 
 public class Main {
