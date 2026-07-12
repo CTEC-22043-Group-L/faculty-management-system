@@ -1,5 +1,7 @@
 import view.auth.AuthFrame;
 
+import javax.swing.*;
+
 public class Main {
     public static void main(String[] args) {
         try {
