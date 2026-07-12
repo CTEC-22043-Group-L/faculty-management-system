@@ -44,7 +44,7 @@ public class DashboardFrame extends JFrame {
 
     private JPanel createSidebar() {
         JPanel panel = new JPanel();
-        panel.setPreferredSize(new Dimension(250, 600));
+        panel.setPreferredSize(new Dimension(280, 600));
         panel.setBackground(new Color(138, 43, 226)); // Purple
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -102,29 +102,20 @@ public class DashboardFrame extends JFrame {
     }
 
     private void addNavButton(JPanel sidebar, String text, String cardName) {
-        JButton btn = new JButton(text);
-        btn.setMaximumSize(new Dimension(200, 40));
-        btn.setBackground(Color.WHITE);
-        btn.setForeground(new Color(138, 43, 226)); // active state foreground wait, let's keep it simple: gray normally, white background when selected. In mockup, unselected are white with gray text or purple background with white text?
-        // Mockup: sidebar is purple. Unselected buttons have white text? Wait, let's check. 
-        // In the mockup, the selected button has a white background and purple text. 
-        // Unselected buttons have a white background but gray text, or wait. 
-        // Actually, looking at the mockup, unselected buttons are slightly transparent white with gray text? No, they look like white background with gray text.
-        btn.setForeground(Color.GRAY);
-        btn.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        btn.setFocusPainted(false);
-        btn.setBorder(BorderFactory.createEmptyBorder(10, 15, 10, 15));
-        btn.setHorizontalAlignment(SwingConstants.LEFT);
-        btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        
-        btn.addActionListener((ActionEvent e) -> {
-            cardLayout.show(contentPanel, cardName);
-            // In a real app we'd update button colors here to show active state
-        });
-        
-        sidebar.add(btn);
-        sidebar.add(Box.createRigidArea(new Dimension(0, 10)));
-    }
+    RoundedButton btn = new RoundedButton(text, 12, Color.WHITE, Color.GRAY);
+    btn.setMaximumSize(new Dimension(240, 40));
+    btn.setAlignmentX(Component.CENTER_ALIGNMENT);
+    btn.setBorder(BorderFactory.createEmptyBorder(10, 15, 10, 15));
+    btn.setHorizontalAlignment(SwingConstants.CENTER);
+    btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+
+    btn.addActionListener((ActionEvent e) -> {
+        cardLayout.show(contentPanel, cardName);
+    });
+
+    sidebar.add(btn);
+    sidebar.add(Box.createRigidArea(new Dimension(0, 10)));
+}
 
     private void initializeViews() {
         if (currentUser.getRole().equals("Admin")) {
