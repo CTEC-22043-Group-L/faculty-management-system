@@ -96,6 +96,8 @@ public class LecturerProfilePanel extends JPanel {
         RoundedTextField txt = new RoundedTextField(20, 15);
         txt.setText(value != null ? value : "");
 
+        txt.setPreferredSize(new Dimension(txt.getPreferredSize().width, 40));
+
         gbc.gridx = 0;
         gbc.gridy = row;
         gbc.weightx = 0.3;
